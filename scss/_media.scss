@@ -1,0 +1,179 @@
+// =========================================================== 1200 ==========================================
+
+@media (max-width: 1200px) {
+    .nav {
+        &__item {
+            margin-left: 35px;
+        }
+    }
+
+    .header {
+        padding-top: 65px;
+
+        &__girl {
+            width: 535px;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+    }
+}
+
+// =========================================================== 992 ==========================================
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 35px;
+    }
+
+    .header {
+        &__link {
+            width: 140px;
+            height: 140px;
+        }
+    }
+}
+
+// =========================================================== 920 ==========================================
+
+@media (max-width: 920px) {
+    .header {
+        &__girl {
+            width: 480px;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+    }
+}
+
+// =========================================================== 860 ==========================================
+
+@media (max-width: 860px) {
+    .header {
+        &__title {
+            margin-top: 55px;
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        &__girl {
+            width: 400px;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        &__description {
+            margin-top: 40px;
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+}
+
+
+// =========================================================== 780 ==========================================
+
+@media (max-width: 780px) {
+    .header {
+        &__girl {
+            display: none;
+        }
+
+        &__content {
+            width: 100%;
+        }
+    }
+
+    .nav {
+        width: 100%;
+
+        &__list {
+
+            justify-content: space-between;
+        }
+    }
+}
+
+
+// =========================================================== 720 ==========================================
+
+@media (max-width: 720px) {
+
+    .nav {
+        position: fixed;
+        background: #BA9C85;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 280px;
+        z-index: 100;
+        transition: .3s;
+        padding: 80px 20px ;
+        visibility: hidden;
+
+        transform: translateX(100%);
+
+        &__list {
+            flex-direction: column;
+        }
+
+        &__open {
+            transform: translateX(0%);
+            visibility: visible;
+        }
+
+        &__close{
+            display: block;
+        }
+
+        &__item{
+            margin: 0 0 30px;
+        }
+
+        &__link{
+            font-size: 12px;
+        } 
+
+        
+    }
+
+   
+
+    .header{
+        &__burger{
+            align-self: flex-end;
+            display: block;
+        }
+    }
+
+
+
+}
+
+
+// =========================================================== 650 ==========================================
+
+@media (max-width: 650px) {}
+
+
+// =========================================================== 580 ==========================================
+
+@media (max-width: 580px) {}
+
+
+// =========================================================== 480 ==========================================
+
+@media (max-width: 480px) {}
+
+
+// =========================================================== 320 ==========================================
+
+@media (max-width: 320px) {}
