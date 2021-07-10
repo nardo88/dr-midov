@@ -158,16 +158,16 @@
         }
     }
 
-    .certificates{
-        &__list{
+    .certificates {
+        &__list {
             justify-content: space-between;
         }
 
-        &__item{
+        &__item {
             width: 48%;
             height: 280px;
 
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
@@ -258,6 +258,46 @@
         // width: 146px;
     }
 
+    .info {
+        flex-direction: column;
+        align-items: center;
+
+        &__image {
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        &__text {
+            width: 100%;
+        }
+
+        &__description {
+            max-width: 100%;
+        }
+    }
+
+    .certificates {
+        &__list {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__item {
+            width: 100%;
+            margin: 0 0 35px 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .about {
+        &__bg {
+            border-radius: 50px 0 50px 0;
+        }
+    }
 }
 
 
@@ -273,7 +313,30 @@
 
 // =========================================================== 580 ==========================================
 
-@media (max-width: 580px) {}
+@media (max-width: 580px) {
+    .info {
+        &__image {
+            max-width: 300px;
+        }
+
+        &__name {
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        &__description {
+            line-height: 19px;
+            font-size: 14px;
+        }
+    }
+
+    .certificates {
+        &__title {
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+}
 
 
 // =========================================================== 480 ==========================================
@@ -300,6 +363,16 @@
         &__content {
             justify-content: space-evenly;
             margin: 50px 0px 10px;
+        }
+    }
+
+    .certificates{
+        &__title{
+            margin-bottom: 25px;
+        }
+
+        &__item{
+            height: auto;
         }
     }
 
