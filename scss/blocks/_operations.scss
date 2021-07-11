@@ -1,0 +1,136 @@
+.operations {
+    padding: 100px 0;
+
+    // .operations__wrapper
+
+    &__wrapper {}
+
+    // .operations__title
+
+    &__title {
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 31px;
+        text-align: center;
+
+        color: #50312A;
+        margin-bottom: 60px;
+    }
+
+    // .operations__content
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    // .operations__list
+
+    &__list {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+    }
+
+    // .operations__item
+
+    &__item {}
+
+
+    &__column {
+        width: 48%;
+
+
+        &:last-child{
+            margin: 30px auto 0;
+        }
+    }
+}
+
+.operation {
+    background: #BDA490;
+    border-radius: 25px;
+    margin-bottom: 9px;
+
+    // .operation__top
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 38px;
+        cursor: pointer;
+    }
+
+    // .operation__name
+
+    &__name {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 23px;
+        text-transform: lowercase;
+
+        color: #50312A;
+    }
+
+    // .operation__plus
+
+    &__plus {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 23px;
+
+        color: #50312A;
+    }
+
+    // .operation__bottom
+
+    &__bottom {
+        overflow: hidden;
+        max-height: 0px;
+        transition: .3s;
+    }
+
+    // .operation__description
+
+    &__description {
+        padding: 8px 38px 38px 30px;
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: #50312A;
+        margin-bottom: 15px;
+
+    }
+
+    // .operation__text
+
+    &__text {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: #50312A;
+        margin-bottom: 15px;
+    }
+
+    // .operation__list
+
+    &__list {
+        margin-bottom: 15px;
+    }
+}
