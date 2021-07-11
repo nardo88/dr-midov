@@ -85,6 +85,25 @@
         }
 
     }
+
+    .operation {
+        border-radius: 15px;
+
+        &__name {
+            font-size: 17px;
+            line-height: 19px;
+        }
+
+        &__top {
+            padding: 15px 20px;
+        }
+
+        &__description {
+            padding: 8px 20px 5px 20px;
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
 }
 
 // =========================================================== 920 ==========================================
@@ -258,6 +277,11 @@
         // width: 146px;
     }
 
+    .services__title {
+        font-size: 20px;
+        line-height: 22px;
+    }
+
     .info {
         flex-direction: column;
         align-items: center;
@@ -298,6 +322,25 @@
             border-radius: 50px 0 50px 0;
         }
     }
+
+    .operations {
+        padding: 50px 0;
+
+        &__column {
+            width: 100%;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+
+        &__title {
+            font-size: 20px;
+            line-height: 22px;
+            margin-bottom: 30px;
+        }
+    }
+
 }
 
 
@@ -366,13 +409,34 @@
         }
     }
 
-    .certificates{
-        &__title{
+    .certificates {
+        &__title {
             margin-bottom: 25px;
         }
 
-        &__item{
+        &__item {
             height: auto;
+        }
+    }
+
+    .operation {
+        &__name {
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        &__text {
+            font-size: 12px;
+            line-height: 15px;
+            margin-bottom: 10px;
+        }
+        &__list{
+            margin-bottom: 10px;
+        }
+
+        &__description{
+            font-size: 12px;
+            line-height: 15px;
         }
     }
 

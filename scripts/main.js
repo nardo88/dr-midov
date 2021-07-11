@@ -23,4 +23,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     menu()
+
+
+
+    const tabsOperations = () => {
+        const operationTop = document.querySelectorAll('.operation__top')
+        const operationBottom = document.querySelectorAll('.operation__bottom')
+
+        const secondHide = () => {
+            operationBottom.forEach(item => {
+                item.style.maxHeight = '0px'
+                item.classList.remove('active')
+            })
+        }
+
+
+        operationTop.forEach((item, i) => {
+            item.addEventListener('click', e => {
+                const target = item.nextElementSibling
+                const child = target.childNodes[1]
+
+                if(target.classList.contains('active')) {
+                    secondHide()
+                } else {
+                    secondHide()
+                    target.classList.add('active')
+                    target.style.maxHeight = child.offsetHeight + 'px'
+
+                }
+            })
+        })
+
+    }
+
+
+    tabsOperations()
 })
