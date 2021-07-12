@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         header.addEventListener('click', e => {
             const target = e.target;
 
-
             if (target.closest('.burger')) {
                 nav.classList.add('nav__open')
             }
@@ -63,8 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const slider = () => {
         let mySwiper = new Swiper('.swiper-container', {
-            slidesPerView: 2,
             spaceBetween: 20,
+            allowTouchMove: false,
+            // loop : true,
             navigation: {
                 nextEl: '.gallery__next',
                 prevEl: '.gallery__prev'
@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
             breakpoints: {
                 320: {
                     slidesPerView: 1,
-
                 },
 
                 760: {
@@ -89,18 +88,113 @@ document.addEventListener('DOMContentLoaded', () => {
     const filter = () => {
         const filterList = document.querySelector('.filter__list')
         const filter = document.querySelector('.filter')
+        const sliderWrapper = document.querySelector('.slider__wrapper')
+
+        const base = [{
+                id: 1,
+                name: 'abdominoplasty',
+                path: './img/gallery/AB1.jpg'
+            },
+            {
+                id: 2,
+                name: 'abdominoplasty',
+                path: './img/gallery/AB2.jpg'
+            },
+            {
+                id: 3,
+                name: 'blepharoplasty',
+                path: './img/gallery/BF1.jpg'
+            },
+            {
+                id: 4,
+                name: 'blepharoplasty',
+                path: './img/gallery/BF2.jpg'
+            },
+            {
+                id: 5,
+                name: 'blepharoplasty',
+                path: './img/gallery/BF3.jpg'
+            },
+            {
+                id: 6,
+                name: 'liposuction',
+                path: './img/gallery/LIPO.jpg'
+            },
+            {
+                id: 7,
+                name: 'liposuction',
+                path: './img/gallery/LIPO2.jpg'
+            },
+            {
+                id: 8,
+                name: 'liposuction',
+                path: './img/gallery/LIPO3.jpg'
+            },
+            {
+                id: 9,
+                name: 'mamoplastic',
+                path: './img/gallery/MM1.jpg'
+            },
+            {
+                id: 10,
+                name: 'mamoplastic',
+                path: './img/gallery/MM2.jpg'
+            },
+        ]
 
         const openFilterItems = () => {
             filterList.classList.toggle('filter__list--open')
         }
 
+        const render = data => {
+            sliderWrapper.innerHTML = '';
+            data.forEach(item => {
+                const elem = document.createElement('div')
+                elem.className = 'slider__item swiper-slide';
+                elem.innerHTML = `<img src=${item.path} alt="slide">`
+                sliderWrapper.insertAdjacentElement('beforeend', elem)
+            })
+
+            slider()
+        }
+
+        render(base)
+
         filter.addEventListener('click', e => {
+
+            e.preventDefault()
+
+
             const target = e.target
-            if(target.closest('.filter__burger')){
+            if (target.closest('.filter__burger')) {
                 openFilterItems()
             }
 
-            
+            if (target.classList.contains('filter__btn')) {
+                // закрываем меню
+                filterList.classList.remove('filter__list--open')
+
+                console.log(target.dataset.type);
+                if (target.dataset.type === 'all') {
+                    render(base)
+                }
+
+                const newData = base.filter(item => item.name === target.dataset.type)
+                if (newData.length) {
+                    render(newData)
+                }
+
+
+            }
+
+
+
+
+
+
+
+
+
         })
     }
 

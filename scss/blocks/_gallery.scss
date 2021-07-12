@@ -1,5 +1,6 @@
 .gallery {
-
+  
+    overflow: hidden;
     // .gallery__wrapper
 
     &__wrapper {}
@@ -21,6 +22,7 @@
 
     &__filter {
         display: flex;
+      
     }
 
     // .gallery__content
