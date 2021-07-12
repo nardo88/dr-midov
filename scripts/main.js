@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const menu = () => {
         const header = document.querySelector('.header')
         const nav = document.querySelector('.nav')
@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = e.target;
 
 
-            if(target.closest('.burger')){
+            if (target.closest('.burger')) {
                 nav.classList.add('nav__open')
             }
 
-            if(target.classList.contains('nav__close')){
+            if (target.classList.contains('nav__close')) {
                 closeMenu()
 
             }
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const target = item.nextElementSibling
                 const child = target.childNodes[1]
 
-                if(target.classList.contains('active')) {
+                if (target.classList.contains('active')) {
                     secondHide()
                 } else {
                     secondHide()
@@ -58,4 +58,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     tabsOperations()
+
+
+
+    const slider = () => {
+        let mySwiper = new Swiper('.swiper-container', {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.gallery__next',
+                prevEl: '.gallery__prev'
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+
+                },
+
+                760: {
+                    slidesPerView: 2,
+
+                },
+            }
+        })
+    }
+
+    slider()
+
+
+    const filter = () => {
+        const filterList = document.querySelector('.filter__list')
+        const filter = document.querySelector('.filter')
+
+        const openFilterItems = () => {
+            filterList.classList.toggle('filter__list--open')
+        }
+
+        filter.addEventListener('click', e => {
+            const target = e.target
+            if(target.closest('.filter__burger')){
+                openFilterItems()
+            }
+
+            
+        })
+    }
+
+    filter()
 })
