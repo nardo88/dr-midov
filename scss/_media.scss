@@ -747,6 +747,20 @@
             font-size: 9px;
         }
     }
+
+    .popup{
+        width: 80%;
+        padding: 30px;
+
+        &__title{
+            font-size: 25px;
+        }
+
+        &__text{
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
 }
 
 
@@ -897,6 +911,21 @@
                 width: 100%;
                 object-fit: contain;
             }
+        }
+    }
+
+    .popup{
+        width: 90%;
+        padding: 30px 20px;
+
+        &__title{
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        &__text{
+            font-size: 16px;
+            line-height: 20px;
         }
     }
 }

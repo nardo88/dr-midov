@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const disableScroll = () => {
+        const scrollWidth = window.innerWidth - document.body.offsetWidth;
+        document.body.dataset.scrollY = window.scrollY;
+        document.body.style.cssText = `
+            overflow: hidden;
+            position: fixed;
+            height: 100vh;
+            top: -${window.scrollY}px;
+            left: 0;
+            width: 100%;
+            padding-right: ${scrollWidth}px;
+        `
+    }
+
+    const enableScroll = () => {
+        document.body.style.cssText = '';
+        window.scroll({
+            top: document.body.dataset.scrollY
+        })
+    }
+
+
     const menu = () => {
         const header = document.querySelector('.header')
         const nav = document.querySelector('.nav')
@@ -15,26 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
 
-        const disableScroll = () => {
-            const scrollWidth = window.innerWidth - document.body.offsetWidth;
-            document.body.dataset.scrollY = window.scrollY;
-            document.body.style.cssText = `
-                overflow: hidden;
-                position: fixed;
-                height: 100vh;
-                top: -${window.scrollY}px;
-                left: 0;
-                width: 100%;
-                padding-right: ${scrollWidth}px;
-            `
-        }
-
-        const enableScroll = () => {
-            document.body.style.cssText = '';
-            window.scroll({
-                top: document.body.dataset.scrollY
-            })
-        }
+       
 
         const closeMenu = () => {
             nav.classList.remove('nav__open')
@@ -320,31 +323,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sendForm = () => {
         const form = document.querySelector('.form');
-        const overlayForm = document.querySelector('.overlay-form');
-        const popupForm = document.querySelector('.popup-form');
+        const overlayForm = document.querySelector('.overlay');
 
+        const openModal = () => {
+            overlayForm.classList.add('overlay--open');
+            disableScroll();
 
-       
+            setTimeout(() => {
+                overlayForm.classList.remove('overlay--open');
+                enableScroll();
 
-        // const openModal = () => {
-        //     overlayForm.classList.add('overlay-form--open');
-        //     popupForm.classList.add('popup-form--open');
-        //     disableScroll();
+            }, 5000)
+        }
 
-        //     setTimeout(() => {
-        //         overlayForm.classList.remove('overlay-form--open');
-        //         popupForm.classList.remove('popup-form--open');
-        //         enableScroll();
+        overlayForm.addEventListener('click', () => {
+            overlayForm.classList.remove('overlay--open');
+            enableScroll();
 
-        //     }, 5000)
-        // }
-
-        // overlayForm.addEventListener('click', () => {
-        //     overlayForm.classList.remove('overlay-form--open');
-        //     popupForm.classList.remove('popup-form--open');
-        //     enableScroll();
-
-        // })
+        })
 
         async function send(form) {
             const formData = new FormData(form);
@@ -357,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 form.reset();
                 const result = response.json();
-                // openModal();
+                openModal();
             } else {
                 alert('ошибка');
                 // openModal();

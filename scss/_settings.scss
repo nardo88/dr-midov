@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.container{
+.container {
     max-width: 945px;
     width: 100%;
     margin: 0 auto;
@@ -20,12 +20,12 @@ ul {
 }
 
 
-button{
+button {
     outline: none;
 }
 
 
-.title{
+.title {
     font-family: 'Merriweather';
     font-style: normal;
     font-weight: bold;
@@ -37,3 +37,56 @@ button{
 
 
 
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .3);
+    z-index: 1000;
+    visibility: hidden;
+
+    &--open{
+        visibility: visible;
+
+        .popup{
+            transform: translateY(0);
+        }
+    }
+}
+
+.popup {
+    background: #BDA490;
+    padding: 50px;
+    border-radius: 20px;
+    transition: .3s;
+    transform: translateY(-1500px);
+
+    
+
+    &__title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 31px;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 35px;
+    }
+
+    // .popup__text
+
+    &__text {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-size: 20px;
+        line-height: 31px;
+        text-align: center;
+        color: #ffffff;
+    }
+}
