@@ -252,4 +252,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     info()
+
+
+
+    const year = () => {
+        document.querySelector('.year_of_rights').textContent = new Date().getFullYear()
+    }
+
+    year()
 })
