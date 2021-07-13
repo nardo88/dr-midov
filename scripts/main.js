@@ -60,29 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    const slider = () => {
-        let mySwiper = new Swiper('.swiper-container', {
-            spaceBetween: 20,
-            allowTouchMove: false,
-            // loop : true,
-            navigation: {
-                nextEl: '.gallery__next',
-                prevEl: '.gallery__prev'
+    let mySwiper = new Swiper('.swiper-container', {
+        allowTouchMove: false,
+        navigation: {
+            nextEl: '.gallery__next',
+            prevEl: '.gallery__prev'
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true
+
             },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                },
 
-                760: {
-                    slidesPerView: 2,
+            760: {
+                slidesPerView: 2,
+                spaceBetween: 20,
 
-                },
-            }
-        })
-    }
+            },
+        }
+    })
 
-    slider()
 
 
     const filter = () => {
@@ -147,6 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const render = data => {
+            mySwiper.destroy(true, true)
+
+
             sliderWrapper.innerHTML = '';
             data.forEach(item => {
                 const elem = document.createElement('div')
@@ -155,7 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 sliderWrapper.insertAdjacentElement('beforeend', elem)
             })
 
-            slider()
+            mySwiper = new Swiper('.swiper-container', {
+                allowTouchMove: false,
+                navigation: {
+                    nextEl: '.gallery__next',
+                    prevEl: '.gallery__prev'
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        loop: true,
+                        allowTouchMove: true,
+        
+                    },
+        
+                    760: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+        
+                    },
+                }
+            })
         }
 
         render(base)
@@ -174,27 +197,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 // закрываем меню
                 filterList.classList.remove('filter__list--open')
 
-                console.log(target.dataset.type);
                 if (target.dataset.type === 'all') {
                     render(base)
+
+                    return
+                } else {
+
+                    const newData = base.filter(item => item.name === target.dataset.type)
+                    if (newData.length) {
+                        render(newData)
+                    }
                 }
-
-                const newData = base.filter(item => item.name === target.dataset.type)
-                if (newData.length) {
-                    render(newData)
-                }
-
-
             }
+        })
 
 
-
-
-
-
-
-
-
+        window.addEventListener('resize', () => {
+            render(base)
         })
     }
 
