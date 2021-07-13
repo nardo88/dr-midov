@@ -64,6 +64,14 @@
             left: 15px;
         }
     }
+
+    .info{
+        &__img{
+            width: 350px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+    }
 }
 
 // =========================================================== 992 ==========================================
@@ -135,6 +143,28 @@
 
         &__btn {
             padding: 8px 10px;
+        }
+    }
+
+    .acardeon {
+        &__top {
+            font-size: 16px;
+            line-height: 19px;
+            padding: 20px 50px;
+        }
+
+        &__description {
+            padding: 20px 50px;
+        }
+
+        &__list {
+            padding-inline-start: 20px;
+        }
+    }
+
+    .info{
+        &__img{
+            width: 300px;
         }
     }
 }
@@ -344,10 +374,36 @@
             padding: 15px 15px 15px 50px;
         }
 
-        &__value{
+        &__value {
             font-size: 13px;
             line-height: 16px;
             padding: 15px 15px 15px 20px;
+        }
+    }
+
+
+    .acardeon {
+        border-radius: 15px;
+
+        &__top {
+            font-size: 14px;
+            line-height: 17px;
+            padding: 17px 30px;
+        }
+
+        &__bottom{
+            font-size: 12px;
+            line-height: 15px;
+        }
+
+        &__description{
+            padding: 17px 30px;
+        }
+    }
+
+    .info{
+        &__img{
+            width: 250px;
         }
     }
 }
@@ -357,7 +413,7 @@
 
 @media (max-width: 720px) {
 
-    .title{
+    .title {
         font-size: 20px;
         line-height: 22px;
     }
@@ -499,7 +555,7 @@
             padding: 10px 10px 10px 30px;
         }
 
-        &__value{
+        &__value {
             font-size: 11px;
             line-height: 14px;
             padding: 10px;
@@ -546,16 +602,18 @@
     }
 
     .price {
-      
+
 
         &__name {
             width: 60%;
         }
 
-        &__value{
+        &__value {
             width: 40%;
         }
     }
+
+  
 }
 
 
@@ -623,22 +681,59 @@
         padding-bottom: 50px;
 
         &__name {
-           font-size: 10px;
-           display: flex;
-           align-items: center;
-           padding: 10px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
         }
 
-        &__value{
-           font-size: 9px;
-           display: flex;
-           align-items: center;
-           padding: 10px;
+        &__value {
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
 
         }
 
-        &__title{
+        &__title {
             margin-bottom: 25px;
+        }
+    }
+
+    .acardeon {
+        border-radius: 15px;
+
+        &__top {
+            font-size: 14px;
+            line-height: 16px;
+            padding: 15px 20px;
+
+            h3{
+
+                font-weight: 400;
+            }
+
+            span{
+                font-size: 20px;
+                line-height: 23px;
+            }
+        }
+
+      
+
+        &__description{
+            padding: 15px 20px;
+        }
+    }
+
+
+    .info{
+        &__img{
+            width: 200px;
+        }
+
+        &__title {
+            margin-bottom: 30px;
         }
     }
 
@@ -650,5 +745,33 @@
 @media (max-width: 320px) {
     .service {
         width: 125px;
+    }
+
+    .acardeon {
+
+        &__top {
+            font-size: 10px;
+            line-height: 12px;
+            padding: 10px;
+
+            h3{
+
+                font-weight: 400;
+            }
+
+            span{
+                font-size: 16px;
+                line-height: 18px;
+            }
+        }
+
+        &__bottom{
+            font-size: 10px;
+            line-height: 12px;
+        }
+
+        &__description{
+            padding: 15px 20px;
+        }
     }
 }

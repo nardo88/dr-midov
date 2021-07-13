@@ -1,8 +1,10 @@
 .info {
+    position: relative;
 
     // .info__wrapper
 
-    &__wrapper {}
+    &__wrapper {
+    }
 
     // .info__title
 
@@ -13,6 +15,19 @@
     // .info__content
 
     &__content {}
+
+    &__img{
+        position: absolute;
+        right: 0;
+        top: -50px;
+        z-index: -1;
+        width: 20%;
+
+        img{
+            width: 100%;
+            object-fit: contain;
+        }
+    }
 }
 
 .acardeon {
@@ -53,8 +68,10 @@
         font-weight: 300;
         font-size: 14px;
         line-height: 17px;
-
         color: #50312A;
+        overflow: hidden;
+        max-height: 0px;
+        transition: .3s;
     }
 
     // .acardeon__description

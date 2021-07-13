@@ -218,4 +218,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     filter()
+
+
+
+
+    const info = () => {
+        const acardeonTop = document.querySelectorAll('.acardeon__top')
+        const acardeonBottom = document.querySelectorAll('.acardeon__bottom')
+
+        const secondHide = () => {
+            acardeonBottom.forEach(item => {
+                item.style.maxHeight = '0px'
+                item.classList.remove('active')
+            })
+        }
+
+
+        acardeonTop.forEach((item, i) => {
+            item.addEventListener('click', e => {
+                const target = item.nextElementSibling
+                const child = target.childNodes[1]
+
+                if (target.classList.contains('active')) {
+                    secondHide()
+                } else {
+                    secondHide()
+                    target.classList.add('active')
+                    target.style.maxHeight = child.offsetHeight + 'px'
+
+                }
+            })
+        })
+    }
+
+    info()
 })
