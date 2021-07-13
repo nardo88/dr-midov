@@ -3,19 +3,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu = () => {
         const header = document.querySelector('.header')
         const nav = document.querySelector('.nav')
+        const footer = document.querySelector('.footer')
 
-        const closeMenu = () => nav.classList.remove('nav__open')
+        const smothScroll = target => {
+            const hash = target.getAttribute('href');
+            const elem = document.querySelector(hash);
+            const coordinateElem = elem.offsetTop;
+            window.scrollTo({top: coordinateElem, behavior: 'smooth' })
+        }
+
+        const disableScroll = () => {
+            const scrollWidth = window.innerWidth - document.body.offsetWidth;
+            document.body.dataset.scrollY = window.scrollY;
+            document.body.style.cssText = `
+                overflow: hidden;
+                position: fixed;
+                height: 100vh;
+                top: -${window.scrollY}px;
+                left: 0;
+                width: 100%;
+                padding-right: ${scrollWidth}px;
+            `
+        }
+
+        const enableScroll = () => {
+            document.body.style.cssText = '';
+            window.scroll({
+                top: document.body.dataset.scrollY
+            })
+        }
+
+        const closeMenu = () => {
+            nav.classList.remove('nav__open')
+            enableScroll()
+        }
 
         header.addEventListener('click', e => {
             const target = e.target;
 
             if (target.closest('.burger')) {
                 nav.classList.add('nav__open')
+                disableScroll()
             }
 
             if (target.classList.contains('nav__close')) {
                 closeMenu()
+            }
 
+            if (target.classList.contains('nav__link')) {
+                e.preventDefault()
+                closeMenu()
+                smothScroll(target)
+                
+            }
+            if (target.classList.contains('header__link')) {
+                e.preventDefault()
+                smothScroll(target)
+                
+            }
+        })
+
+        footer.addEventListener('click', e => {
+            const target = e.target
+
+            if(target.classList.contains('footer-nav__link')){
+                e.preventDefault()
+                smothScroll(target)
             }
         })
     }
@@ -169,13 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         spaceBetween: 0,
                         loop: true,
                         allowTouchMove: true,
-        
+
                     },
-        
+
                     760: {
                         slidesPerView: 2,
                         spaceBetween: 20,
-        
+
                     },
                 }
             })
