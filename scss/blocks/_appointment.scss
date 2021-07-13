@@ -1,4 +1,5 @@
 .appointment {
+    margin-top: 284px;
 
     // .appointment__wrapper
 
@@ -80,7 +81,7 @@
         margin-top: 135px;
         background: #B5947A;
         border-radius: 25px;
-        padding: 26px 150px;
+        padding: 26px 50px;
         border: 2px solid #B5947A;
         cursor: pointer;
 
@@ -89,7 +90,11 @@
         font-weight: 600;
         font-size: 15px;
         line-height: 18px;
-
+        transition: .3s;
         color: #5F433D;
+
+        &:hover{
+            opacity: .7;
+        }
     }
 }
