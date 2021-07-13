@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const hash = target.getAttribute('href');
             const elem = document.querySelector(hash);
             const coordinateElem = elem.offsetTop;
-            window.scrollTo({top: coordinateElem, behavior: 'smooth' })
+            window.scrollTo({
+                top: coordinateElem,
+                behavior: 'smooth'
+            })
         }
 
         const disableScroll = () => {
@@ -54,19 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault()
                 closeMenu()
                 smothScroll(target)
-                
+
             }
             if (target.classList.contains('header__link')) {
                 e.preventDefault()
                 smothScroll(target)
-                
+
             }
         })
 
         footer.addEventListener('click', e => {
             const target = e.target
 
-            if(target.classList.contains('footer-nav__link')){
+            if (target.classList.contains('footer-nav__link')) {
                 e.preventDefault()
                 smothScroll(target)
             }
@@ -313,4 +316,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     year()
+
+
+    const sendForm = () => {
+        const form = document.querySelector('.form');
+        const overlayForm = document.querySelector('.overlay-form');
+        const popupForm = document.querySelector('.popup-form');
+
+
+       
+
+        // const openModal = () => {
+        //     overlayForm.classList.add('overlay-form--open');
+        //     popupForm.classList.add('popup-form--open');
+        //     disableScroll();
+
+        //     setTimeout(() => {
+        //         overlayForm.classList.remove('overlay-form--open');
+        //         popupForm.classList.remove('popup-form--open');
+        //         enableScroll();
+
+        //     }, 5000)
+        // }
+
+        // overlayForm.addEventListener('click', () => {
+        //     overlayForm.classList.remove('overlay-form--open');
+        //     popupForm.classList.remove('popup-form--open');
+        //     enableScroll();
+
+        // })
+
+        async function send(form) {
+            const formData = new FormData(form);
+
+            const response = await fetch('../sendmail.php', {
+                method: 'POST',
+                body: formData
+            })
+
+            if (response.ok) {
+                form.reset();
+                const result = response.json();
+                // openModal();
+            } else {
+                alert('ошибка');
+                // openModal();
+            }
+        }
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            send(e.target)
+        })
+    }
+
+    sendForm();
 })
