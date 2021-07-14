@@ -15,7 +15,7 @@
     // от кого письмо
     $mail->setFrom('nardo1988@gmail.com', 'dr.midov');
     // кому отправлять
-    $mail->addAddress('nardo1988@mail.ru');
+    $mail->addAddress('la-do94@mail.ru');
     // тема письма
     $mail->Subject = 'Запись на консультацию';
    
