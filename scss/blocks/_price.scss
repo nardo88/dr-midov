@@ -47,13 +47,18 @@
 
     // .price__list
 
-    &__list {}
+    &__list {
+        color: #FFFFFF !important;
+
+    }
 
     // .price__item
 
     &__item {
         display: flex;
         border-bottom: 1px solid #BA9C85;
+        color: #FFFFFF !important;
+
     }
 
     // .price__name
@@ -78,7 +83,7 @@
         font-weight: normal;
         font-size: 15px;
         line-height: 18px;
-        color: #FFFFFF;
+        color: #FFFFFF !important;
         padding: 22px 15px 22px 34px;
         flex-grow: 1;
     }
